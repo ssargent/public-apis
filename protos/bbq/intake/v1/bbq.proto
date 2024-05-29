@@ -3,7 +3,7 @@ package bbq.intake.v1;
  
 
 option java_multiple_files = true;
-option go_package = "github.com/ssargent/apis/pkg/bbq/intake/v1;intakev1";
+option go_package = "github.com/ssargent/public-apis/pkg/bbq/intake/v1;intakev1";
 
 message Sensor {
     string name = 1;
@@ -53,5 +53,5 @@ message Session {
     string sensor_id = 7;
     string session_type = 8;
     string subject_id = 9;
-    optional sensor_alert_id = 10;
+    optional string sensor_alert_id = 10;
 }

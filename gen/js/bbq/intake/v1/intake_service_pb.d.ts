@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage, Timestamp } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import type { Reading, Session } from "./bbq_pb.js";
+import type { Reading, SensorAlert, SensorAlertRule, Session } from "./bbq_pb.js";
 
 /**
  * @generated from message bbq.intake.v1.RecordRequest
@@ -126,5 +126,58 @@ export declare class SessionResponse extends Message<SessionResponse> {
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SessionResponse;
 
   static equals(a: SessionResponse | PlainMessage<SessionResponse> | undefined, b: SessionResponse | PlainMessage<SessionResponse> | undefined): boolean;
+}
+
+/**
+ * @generated from message bbq.intake.v1.CreateSensorAlertRequest
+ */
+export declare class CreateSensorAlertRequest extends Message<CreateSensorAlertRequest> {
+  /**
+   * @generated from field: bbq.intake.v1.SensorAlert sensor_alert = 1;
+   */
+  sensorAlert?: SensorAlert;
+
+  /**
+   * @generated from field: repeated bbq.intake.v1.SensorAlertRule rules = 2;
+   */
+  rules: SensorAlertRule[];
+
+  constructor(data?: PartialMessage<CreateSensorAlertRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "bbq.intake.v1.CreateSensorAlertRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateSensorAlertRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateSensorAlertRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateSensorAlertRequest;
+
+  static equals(a: CreateSensorAlertRequest | PlainMessage<CreateSensorAlertRequest> | undefined, b: CreateSensorAlertRequest | PlainMessage<CreateSensorAlertRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message bbq.intake.v1.CreateSensorAlertResponse
+ */
+export declare class CreateSensorAlertResponse extends Message<CreateSensorAlertResponse> {
+  /**
+   * @generated from field: bbq.intake.v1.SensorAlert sensor_alert = 1;
+   */
+  sensorAlert?: SensorAlert;
+
+  constructor(data?: PartialMessage<CreateSensorAlertResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "bbq.intake.v1.CreateSensorAlertResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateSensorAlertResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateSensorAlertResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateSensorAlertResponse;
+
+  static equals(a: CreateSensorAlertResponse | PlainMessage<CreateSensorAlertResponse> | undefined, b: CreateSensorAlertResponse | PlainMessage<CreateSensorAlertResponse> | undefined): boolean;
 }
 

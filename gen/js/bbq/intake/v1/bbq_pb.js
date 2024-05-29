@@ -54,6 +54,32 @@ export const SessionDataRate = /*@__PURE__*/ proto3.makeMessageType(
 );
 
 /**
+ * @generated from message bbq.intake.v1.SensorAlert
+ */
+export const SensorAlert = /*@__PURE__*/ proto3.makeMessageType(
+  "bbq.intake.v1.SensorAlert",
+  () => [
+    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 2, name: "sensor_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "alert_name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "default_alert", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ],
+);
+
+/**
+ * @generated from message bbq.intake.v1.SensorAlertRule
+ */
+export const SensorAlertRule = /*@__PURE__*/ proto3.makeMessageType(
+  "bbq.intake.v1.SensorAlertRule",
+  () => [
+    { no: 1, name: "sensor_alert_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "sensor_number", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
+    { no: 3, name: "min_temperature", kind: "scalar", T: 2 /* ScalarType.FLOAT */ },
+    { no: 4, name: "max_temperature", kind: "scalar", T: 2 /* ScalarType.FLOAT */ },
+  ],
+);
+
+/**
  * @generated from message bbq.intake.v1.Session
  */
 export const Session = /*@__PURE__*/ proto3.makeMessageType(
@@ -68,6 +94,7 @@ export const Session = /*@__PURE__*/ proto3.makeMessageType(
     { no: 7, name: "sensor_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 8, name: "session_type", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "subject_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "sensor_alert_id", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
   ],
 );
 

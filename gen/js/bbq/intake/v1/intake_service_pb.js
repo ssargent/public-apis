@@ -4,7 +4,7 @@
 // @ts-nocheck
 
 import { proto3, Timestamp } from "@bufbuild/protobuf";
-import { Reading, Session } from "./bbq_pb.js";
+import { Reading, SensorAlert, SensorAlertRule, Session } from "./bbq_pb.js";
 
 /**
  * @generated from message bbq.intake.v1.RecordRequest
@@ -48,6 +48,27 @@ export const SessionResponse = /*@__PURE__*/ proto3.makeMessageType(
   "bbq.intake.v1.SessionResponse",
   () => [
     { no: 1, name: "session", kind: "message", T: Session },
+  ],
+);
+
+/**
+ * @generated from message bbq.intake.v1.CreateSensorAlertRequest
+ */
+export const CreateSensorAlertRequest = /*@__PURE__*/ proto3.makeMessageType(
+  "bbq.intake.v1.CreateSensorAlertRequest",
+  () => [
+    { no: 1, name: "sensor_alert", kind: "message", T: SensorAlert },
+    { no: 2, name: "rules", kind: "message", T: SensorAlertRule, repeated: true },
+  ],
+);
+
+/**
+ * @generated from message bbq.intake.v1.CreateSensorAlertResponse
+ */
+export const CreateSensorAlertResponse = /*@__PURE__*/ proto3.makeMessageType(
+  "bbq.intake.v1.CreateSensorAlertResponse",
+  () => [
+    { no: 1, name: "sensor_alert", kind: "message", T: SensorAlert },
   ],
 );
 

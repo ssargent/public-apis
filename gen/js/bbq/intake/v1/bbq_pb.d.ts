@@ -143,6 +143,84 @@ export declare class SessionDataRate extends Message<SessionDataRate> {
 }
 
 /**
+ * @generated from message bbq.intake.v1.SensorAlert
+ */
+export declare class SensorAlert extends Message<SensorAlert> {
+  /**
+   * @generated from field: optional string id = 1;
+   */
+  id?: string;
+
+  /**
+   * @generated from field: string sensor_id = 2;
+   */
+  sensorId: string;
+
+  /**
+   * @generated from field: string alert_name = 3;
+   */
+  alertName: string;
+
+  /**
+   * @generated from field: bool default_alert = 4;
+   */
+  defaultAlert: boolean;
+
+  constructor(data?: PartialMessage<SensorAlert>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "bbq.intake.v1.SensorAlert";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SensorAlert;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SensorAlert;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SensorAlert;
+
+  static equals(a: SensorAlert | PlainMessage<SensorAlert> | undefined, b: SensorAlert | PlainMessage<SensorAlert> | undefined): boolean;
+}
+
+/**
+ * @generated from message bbq.intake.v1.SensorAlertRule
+ */
+export declare class SensorAlertRule extends Message<SensorAlertRule> {
+  /**
+   * @generated from field: string sensor_alert_id = 1;
+   */
+  sensorAlertId: string;
+
+  /**
+   * @generated from field: int32 sensor_number = 2;
+   */
+  sensorNumber: number;
+
+  /**
+   * @generated from field: float min_temperature = 3;
+   */
+  minTemperature: number;
+
+  /**
+   * @generated from field: float max_temperature = 4;
+   */
+  maxTemperature: number;
+
+  constructor(data?: PartialMessage<SensorAlertRule>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "bbq.intake.v1.SensorAlertRule";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SensorAlertRule;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SensorAlertRule;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SensorAlertRule;
+
+  static equals(a: SensorAlertRule | PlainMessage<SensorAlertRule> | undefined, b: SensorAlertRule | PlainMessage<SensorAlertRule> | undefined): boolean;
+}
+
+/**
  * @generated from message bbq.intake.v1.Session
  */
 export declare class Session extends Message<Session> {
@@ -190,6 +268,11 @@ export declare class Session extends Message<Session> {
    * @generated from field: string subject_id = 9;
    */
   subjectId: string;
+
+  /**
+   * @generated from field: optional string sensor_alert_id = 10;
+   */
+  sensorAlertId?: string;
 
   constructor(data?: PartialMessage<Session>);
 
