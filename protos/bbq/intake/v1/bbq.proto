@@ -1,0 +1,57 @@
+syntax = "proto3";
+package bbq.intake.v1;
+ 
+
+option java_multiple_files = true;
+option go_package = "github.com/ssargent/apis/pkg/bbq/intake/v1;intakev1";
+
+message Sensor {
+    string name = 1;
+    string manufacturer = 2;
+    int32 sensor_count = 3;
+    string temperature_unit = 4;
+    string sensor_id = 5;
+}
+
+message SensorReading {
+    int32 sensor_number = 1;
+    float temperature = 2;
+}
+
+message Reading {
+    string session_id = 1;
+    repeated SensorReading readings = 2;
+    int64 recorded_at = 3;
+}
+
+message SessionDataRate {
+    int32 sensors = 1;
+    int32 max_readings_minute = 2;
+}
+
+message SensorAlert {
+    optional string id = 1;
+    string sensor_id = 2;
+    string alert_name = 3;
+    bool default_alert = 4;
+}
+
+message SensorAlertRule {
+    string sensor_alert_id = 1;
+    int32 sensor_number = 2;
+    float min_temperature = 3;
+    float max_temperature = 4;
+}
+
+message Session {
+    string id = 1;
+    string device_id = 2;
+    string desired_state = 3;
+    string description = 4;
+    int64 start_time = 5;
+    optional int64 end_time = 6;
+    string sensor_id = 7;
+    string session_type = 8;
+    string subject_id = 9;
+    optional sensor_alert_id = 10;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+package bbq.collector.v1;
+
+import "google/protobuf/timestamp.proto"; 
+import "bbq/collector/v1/bbq.proto";
+
+option java_multiple_files = true;
+option go_package = "github.com/ssargent/apis/pkg/bbq/collector/v1;collectorv1";
+
+message RecordRequest {
+    Reading reading = 1;
+}
+
+message RecordResponse {
+    string session_id = 1;
+    google.protobuf.Timestamp recorded_at = 2;
+}
+
+message SessionRequest {
+    string name = 1;
+}
+
+message SessionResponse {
+    Session session = 1;
+}
+
+service CollectorService {
+    rpc Record(RecordRequest) returns (RecordResponse) {}
+    rpc Session(SessionRequest) returns (SessionResponse) {}
+}

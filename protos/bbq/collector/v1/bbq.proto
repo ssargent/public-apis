@@ -1,0 +1,31 @@
+syntax = "proto3";
+package bbq.collector.v1;
+
+import "google/protobuf/timestamp.proto"; 
+
+option java_multiple_files = true;
+option go_package = "github.com/ssargent/public-apis/pkg/bbq/collector/v1;collectorv1";
+
+message Sensor {
+    string name = 1;
+    string manufacturer = 2;
+    int32 sensor_count = 3;
+    string temperature_unit = 4;
+    string sensor_id = 5;
+}
+
+message SensorReading {
+    int32 sensor_number = 1;
+    float temperature = 2;
+}
+
+message Reading {
+    Sensor sensor = 1;
+    repeated SensorReading readings = 2;
+    google.protobuf.Timestamp recorded_at = 3;
+}
+
+message Session {
+    string id = 1;
+    string name = 2;
+}

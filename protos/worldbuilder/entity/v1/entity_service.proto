@@ -1,0 +1,47 @@
+syntax = "proto3";
+package worldbuilder.entity.v1;
+ 
+import "worldbuilder/entity/v1/entity.proto";
+
+option java_multiple_files = true;
+option go_package = "github.com/ssargent/apis/pkg/worldbuilder/entity/v1;entityv1";
+ 
+message GetEntityRequest {
+  string id = 1;
+}
+
+message GetEntityResponse {
+    Entity entity = 1;
+}
+
+message GetEntitiesRequest {
+    Filter criteria = 1;
+}
+
+message GetEntitiesResponse {
+    Filter criteria = 1;
+    repeated Entity entities = 2;
+}
+
+message CreateTypeRequest {
+  Type type = 1;
+}
+
+message CreateTypeResponse {
+  Type type = 1;
+}
+
+message CreateEntityRequest {
+  EntityInput entity = 1;
+}
+
+message CreateEntityResponse {
+  Entity entity = 1;
+}
+
+service EntityService {
+  rpc GetEntity(GetEntityRequest) returns (GetEntityResponse) {}
+  rpc GetEntities(GetEntitiesRequest) returns (GetEntitiesResponse) {}
+  rpc CreateType(CreateTypeRequest) returns (CreateTypeResponse) {}
+  rpc CreateEntity(CreateEntityRequest) returns (CreateEntityResponse) {}
+}

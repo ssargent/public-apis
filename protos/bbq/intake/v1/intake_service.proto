@@ -1,0 +1,43 @@
+syntax = "proto3";
+package bbq.intake.v1;
+
+import "google/protobuf/timestamp.proto"; 
+import "bbq/intake/v1/bbq.proto";
+
+option java_multiple_files = true;
+option go_package = "github.com/ssargent/public-apis/pkg/bbq/intake/v1;intakev1";
+
+message RecordRequest {
+    repeated Reading reading = 1;
+}
+
+message RecordResponse {
+    string session_id = 1;
+    google.protobuf.Timestamp recorded_at = 2;
+}
+
+message SessionRequest {
+    string description = 1;
+    optional string device_name = 2;
+    optional string sensor_name = 3;
+    optional string subject_id = 4;
+    optional string desired_state = 5;
+}
+
+message SessionResponse {
+    Session session = 1;
+}
+
+message CreateSensorAlertRequest {
+     SensorAlert sensor_alert = 1;
+     repeated SensorAlertRule rules = 2;
+}
+
+message CreateSensorAlertResponse {
+    SensorAlert sensor_alert = 1;
+}
+
+service IntakeService {
+    rpc Record(RecordRequest) returns (RecordResponse) {}
+    rpc Session(SessionRequest) returns (SessionResponse) {}
+}
