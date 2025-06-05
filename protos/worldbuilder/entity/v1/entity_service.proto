@@ -4,7 +4,7 @@ package worldbuilder.entity.v1;
 import "worldbuilder/entity/v1/entity.proto";
 
 option java_multiple_files = true;
-option go_package = "github.com/ssargent/apis/pkg/worldbuilder/entity/v1;entityv1";
+option go_package = "github.com/ssargent/public-apis/pkg/worldbuilder/entity/v1;entityv1";
  
 message GetEntityRequest {
   string id = 1;

@@ -5,7 +5,7 @@ import "google/protobuf/timestamp.proto";
 import "bbq/collector/v1/bbq.proto";
 
 option java_multiple_files = true;
-option go_package = "github.com/ssargent/apis/pkg/bbq/collector/v1;collectorv1";
+option go_package = "github.com/ssargent/public-apis/pkg/bbq/collector/v1;collectorv1";
 
 message RecordRequest {
     Reading reading = 1;

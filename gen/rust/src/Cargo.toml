@@ -1,0 +1,8 @@
+[package]
+name = "ssargent-public-apis-grpc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tonic = "0.11"
+prost = "0.12"
